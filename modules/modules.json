@@ -1,0 +1,14 @@
+{
+  "wireless-networks-scanner": {
+    "moduleName": "Wireless Networks",
+    "moduleScript": "wireless.py",
+    "moduleDisplay": "wirelessPrint.php",
+    "dependencies": []
+  },
+  "network-hosts-mapper" : {
+    "moduleName": "Hosts on the Current Network",
+    "moduleScript": "nmapscan.py",
+    "moduleDisplay": "printHosts.php",
+    "dependencies": []
+  }
+}

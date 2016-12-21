@@ -1,0 +1,23 @@
+#main_content_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#left_navbar {
+  order: 1;
+  margin-right: 5px;
+  background-color: #8e8f91;
+  height: 100%;
+}
+
+#right_content {
+  order: 2;
+  overflow-y: auto;
+}
+
+.navItem {
+  margin: 2px;
+  width: auto;
+}
