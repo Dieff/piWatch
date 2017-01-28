@@ -6,7 +6,12 @@ Select the button below to start a scan of your network
 <script type="text/javascript">
 $(document).ready(function(){
   $('#scan_button').button().click(function(){
-    alert('coming soon...');
+    $.ajax({
+      url: 'modules/webHelpers/startScan.php',
+      })
+    .done(function(resp) {
+      console.log(resp);
+    });
   })
 });
 </script>

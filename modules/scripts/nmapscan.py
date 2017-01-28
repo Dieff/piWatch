@@ -6,6 +6,7 @@ import sys
 iprange = sys.argv[1]
 portrange = ''
 flags = '-sV'
+
 #Get optional arguments, if they exist
 if(len(sys.argv)>2):
 	portrange = sys.argv[2]
@@ -13,16 +14,17 @@ if(len(sys.argv)>2):
 		flags = ''
 		for arg in sys.argv[3:]:
 			flags += ' ' + arg
+
 #print 'Arguments Passed:'
 #print iprange portrange flags
 print 'Performing Scan...'
 #Perform nmap scan with given arguments
 nm = nmap.PortScanner()
-nm.scan(iprange, portrange, flags)
+nm.scan(iprange, portrange)
 print(nm.scanstats())
 print 'Scan Done'
 #Connect to MySQL database using mysql.connector package
-dbc = mysql.connector.connect(user='piWatch',password='Cybersec$314',database='nscan')
+dbc = mysql.connector.connect(user='cybersec',password='Cybersec$314',database='piwatch')
 cursor = dbc.cursor()
 query = ("INSERT INTO scans (date, time, host, prot, port, serv, soft, vers, vend) VALUES (%(date)s,%(time)s,%(host)s,%(prot)s,%(port)s,%(serv)s,%(soft)s,%(vers)s,%(vend)s)")
 
@@ -31,7 +33,7 @@ splitup = nm.scanstats()['timestr'].split()
 date = splitup[2]+" "+splitup[1]+" "+splitup[4]
 time = splitup[3]
 for host in nm.all_hosts():
-	pring('in loop')
+	print('in loop')
 	vendor = ""
 	if(nm[host]['vendor'].values()):
 		vendor = (nm[host]['vendor'].values()[0])
